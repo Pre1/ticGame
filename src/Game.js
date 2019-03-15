@@ -20,19 +20,17 @@ function calculateWinner(squares) {
 	for (let line of lines) {
 		const [a, b, c] = line;
 
-		console.log("calculateWinner => line", line);
-		console.log("calculateWinner => a: ?", squares[a]);
-		console.log("calculateWinner => b: ?", squares[b]);
-		console.log("calculateWinner => a === b ?", squares[a] === squares[b]);
-		if (
-			squares[a] &&
-			squares[a] === squares[b] &&
-			squares[a] === squares[c]
-		) {
-			console.log("calculateWinner => a: ?", squares[a]);
-			console.log("calculateWinner => b: ?", squares[b]);
-			console.log("calculateWinner => a === b ?", squares[a] === squares[b]);
-			return squares[a];
+		if (squares[a] && squares[b] && squares[c]) {
+			if (
+			squares[a].key &&
+			squares[a].key === squares[b].key &&
+			squares[a].key === squares[c].key
+			) 
+			{
+				let winner = squares[a].key
+
+				return winner === "x" ? "☕️" : "🍩";
+			}
 		}
 	}
 
